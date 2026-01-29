@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-secondary text-accent;
+  margin: 0;
+  padding: 0; /* Pastikan padding body 0 */
+  display: block;
+  min-height: 100vh;
+}
+
+/* src/index.css */
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Geser sejauh setengah panjang total */
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite; /* 40 detik untuk satu putaran, bisa diatur kecepatannya */
+  width: max-content; /* Agar lebar konten menyesuaikan isi */
+}
+
+/* Opsional: Agar berhenti saat mouse diarahkan */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Tambahkan ini di bagian paling bawah file src/index.css */
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: left; /* Reset text-align bawaan vite yang kadang center */
+}
